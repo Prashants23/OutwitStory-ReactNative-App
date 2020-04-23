@@ -16,11 +16,16 @@ import Participate from '../components/screen/HomeTab/challengeOfTheDay/Chalenge
 import Comments from '../components/screen/HomeTab/StoryOfTheDayTab/Comments';
 import ProfilePageContainers from '../components/screen/ProfilePageTab/ProfileContainer';
 import ModalExample from '../components/screen/HomeTab/modalComment';
+import CarousalComponent from '../components/screen/HomeTab/StoryOfTheDayTab/Carousal';
 // import Form from '../components/screen/Form'
 
 const styles = StyleSheet.create({
   tabcontainer: {
-    backgroundColor: '#1f3454',
+    // backgroundColor: '#1f3454',
+    // backgroundColor:'#000a12',
+    // backgroundColor:'#89bce8',
+    backgroundColor: 'white',
+    // backgroundColor:'#ebfaff',
     borderColor: 'transparent', // Required to show shadows on Android for some reason !?!?
     shadowColor: 'black',
     shadowOffset: {
@@ -48,19 +53,14 @@ class Navigation extends React.Component {
     };
   }
   tabicon = ({focused, title}) => {
+    const size = title === 'writer-1' ? 35 : 20;
     return (
       <View style={{alignItems: 'center'}}>
-        {title === 'ChallengeOfTheDay' ? (
-          <Text style={{color: 'white', width: 150}}>Challenge of the day</Text>
-        ) : title === 'Storyoftheday' ? (
-          <Text style={{color: 'white', width: 150}}>Story of the day</Text>
-        ) : (
-          <CustomIcon
-            color={focused ? '#946715' : '#8a8787'}
-            size={20}
-            name={title}
-          />
-        )}
+        <CustomIcon
+          color={focused ? '#946715' : '#8a8787'}
+          size={size}
+          name={title}
+        />
       </View>
     );
   };
@@ -73,11 +73,17 @@ class Navigation extends React.Component {
     return (
       <Router>
         <Stack key="root">
+          {/* <Scene
+            key="Carousal"
+            component={CarousalComponent}
+            hideNavBar={true}
+            initial={true}
+          /> */}
           <Scene
             key="startpage"
             component={Startpage}
             hideNavBar={true}
-            initial
+            // initial
           />
           <Scene
             key="login"
@@ -95,7 +101,7 @@ class Navigation extends React.Component {
           {/* //////////////////////////////////////////////////////////////////////////////////////////////////////////////// */}
           {/* Tabs Start Here */}
           <Scene
-            // initial
+            initial
             key="tabbar"
             tabs={true}
             showLabel={false}
@@ -108,7 +114,7 @@ class Navigation extends React.Component {
               showLabel={false}
               icon={this.tabicon}>
               {/* tab of Home  starts here Homse tabs  */}
-              <Scene
+              {/* <Scene
                 // initial
                 key="homeTabOptions"
                 tabs={true}
@@ -116,29 +122,29 @@ class Navigation extends React.Component {
                 tabBarStyle={styles.innerTabContainerHome}
                 tabBarPosition={'top'}
                 showIcon
-                hideNavBar={true}>
-                {/* tab 1 Story of the day */}
-                <Scene
+                hideNavBar={true}> */}
+              {/* tab 1 Story of the day */}
+              {/* <Scene
                   key="Storyoftheday"
                   title="Storyoftheday"
-                  icon={this.tabicon}>
-                  <Scene
-                    // initial
-                    key="Timeline"
-                    component={Home}
-                    showLabel={false}
-                    hideNavBar={true}
-                    title="All content"
-                  />
-                  {/* <Scene
+                  icon={this.tabicon}> */}
+              <Scene
+                // initial
+                key="Timeline"
+                component={Home}
+                showLabel={false}
+                hideNavBar={true}
+                title="All content"
+              />
+              {/* <Scene
                     key="Comments"
                     component={Comments}
                     showLabel={false}
                     hideNavBar={true}
                     title="Comments"
                   /> */}
-                </Scene>
-                {/* <Scene
+              {/* </Scene> */}
+              {/* <Scene
                 key="Home"
                 component={Home}
                 showLabel={false}
@@ -153,8 +159,8 @@ class Navigation extends React.Component {
                 hideNavBar={true}
               /> */}
 
-                {/* Tab 2 Challenge of the Day */}
-                <Scene
+              {/* Tab 2 Challenge of the Day */}
+              {/* <Scene
                   key="ChallengeOfTheDay"
                   title="ChallengeOfTheDay"
                   tabBarStyle={{marginLeft: 40}}
@@ -166,23 +172,23 @@ class Navigation extends React.Component {
                     component={ChallengOfTheDay}
                     showLabel={false}
                     title="ChallengeOfTheDayfile"
-                  />
-                  <Scene
+                  /> */}
+              {/* <Scene
                     key="Participate"
                     hideNavBar={true}
                     component={Participate}
                     title={'Participate'}
-                  />
-                </Scene>
-                {/* <Scene
+                  /> */}
+            </Scene>
+            {/* <Scene
                   key="Test233"
                   title="test"
                   icon={this.tabicon}
                   hideNavBar>
                   <Scene Key="Test" component={Test} initial />
                 </Scene> */}
-              </Scene>
-            </Scene>
+
+            {/* </Scene> */}
 
             {/* Home Tab Ends Here */}
 
@@ -208,7 +214,7 @@ class Navigation extends React.Component {
 
             <Scene
               key="Profile"
-              title="user"
+              title="writer-1"
               showLabel={false}
               icon={this.tabicon}>
               <Scene
@@ -219,8 +225,9 @@ class Navigation extends React.Component {
                 title="Profile"
               />
             </Scene>
-            {/* Profile Page Tab Ends Here */}
           </Scene>
+          {/* Profile Page Tab Ends Here */}
+          {/* </Scene> */}
           {/* </Scene> */}
           {/* </View> */}
         </Stack>

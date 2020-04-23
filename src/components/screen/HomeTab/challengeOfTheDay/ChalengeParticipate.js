@@ -14,19 +14,23 @@ import {
 import {KeyboardAwareScrollView} from 'react-native-keyboard-aware-scroll-view';
 import Buttons from '../../../atoms/buttons';
 import CustomIcon from '../../../atoms/CustomIcon';
-import {Actions} from 'react-native-router-flux';
+import Toolbars from '../../../atoms/Toolbar';
 
 const styles = StyleSheet.create({
   Title: {
     alignItems: 'center',
-    marginHorizontal: horizontalScale(75),
+    marginHorizontal: horizontalScale(80),
     justifyContent: 'center',
+    marginVertical: verticalScale(20),
+    marginBottom: 10,
   },
   TitleText: {
     textAlign: 'center',
     fontSize: 15,
     fontWeight: '700',
-    color: '#e6c875',
+    color: 'black',
+    marginTop: 5,
+    letterSpacing: 2,
   },
   textInput: {
     width: horizontalScale(320),
@@ -41,6 +45,10 @@ const styles = StyleSheet.create({
     fontSize: 16,
     color: 'black',
     paddingTop: 5,
+    paddingLeft: 15,
+    paddingRight: 10,
+    letterSpacing: 1,
+    lineHeight: 35,
   },
   buttonConatiner: {
     alignItems: 'center',
@@ -54,37 +62,30 @@ const styles = StyleSheet.create({
     borderColor: '#946715',
     borderWidth: 2,
     borderRadius: 8,
+    alignItems: 'center',
   },
   TextStyle: {
     color: '#a9d1c3',
     // paddingTop:10,
-    fontSize: 14,
+    fontSize: 16,
     fontWeight: '700',
     // marginTop: verticalScale(7),
     textAlign: 'center',
+    letterSpacing: 1,
   },
 });
 class Participate extends React.Component {
   render() {
+    const {onpress} = this.props;
     return (
-      <ImageBackground
-        source={require('../../../../assets/participatebackground.jpg')}
-        style={{width: '100%', height: '100%'}}
-        blurRadius={1}>
+      <View>
+        <Toolbars />
         <ScrollView>
           <View>
-            <View style={{flexDirection: 'row'}}>
-              <CustomIcon
-                name={'back'}
-                size={35}
-                style={{marginTop: 10}}
-                onPress={() => Actions.ChallengeOfTheDayfile()}
-              />
+            <View>
               <View style={styles.Title}>
                 <Text style={styles.TitleText}>Challenge Name</Text>
-                <Text style={[styles.TitleText, {color: '#1f3454'}]}>
-                  Widow of This Realm
-                </Text>
+                <Text style={[styles.TitleText]}>Widow of This Realm</Text>
               </View>
             </View>
             <KeyboardAwareScrollView>
@@ -93,6 +94,7 @@ class Participate extends React.Component {
                 <TextInput
                   underlineColorAndroid="transparent"
                   placeholder="Write your Story Here"
+                  placeholderTextColor="black"
                   multiline={true}
                   style={styles.textInput}
                 />
@@ -107,7 +109,7 @@ class Participate extends React.Component {
             </View>
           </View>
         </ScrollView>
-      </ImageBackground>
+      </View>
     );
   }
 }

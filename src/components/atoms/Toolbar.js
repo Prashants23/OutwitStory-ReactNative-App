@@ -3,13 +3,16 @@ import {View, Text, StyleSheet} from 'react-native';
 
 const styles = StyleSheet.create({
   header: {
-    backgroundColor: '#1f3454',
+    // backgroundColor: '#1f3454',
+    backgroundColor:'#ebfaff',
     height: 40,
     flexDirection: 'row',
+    marginTop:0
     // alignItems: 'center',
   },
   headerText: {
-    color: 'white',
+    // color: 'white',
+    color:'blue',
     // textAlign: 'center',
     textAlignVertical: 'center',
     height: 40,

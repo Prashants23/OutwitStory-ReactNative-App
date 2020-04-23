@@ -11,18 +11,21 @@ import {
 import {
   verticalScale,
   horizontalScale,
+  Height,
+  Width,
 } from '../../../utils/stylesheetawesomeproject';
 import LinearGradient from 'react-native-linear-gradient';
 import MoreProfileInfo from './MoreProfileInfo';
+import CustomIcon from '../../atoms/CustomIcon';
 
 const styles = StyleSheet.create({
   profilePhotoContainer: {
     borderColor: '#946715',
-    height: verticalScale(260),
-    width: horizontalScale(260),
+    height: Height * 0.3786,
+    width: Width * 0.45,
     alignItems: 'center',
     shadowColor: '#5497d1',
-    elevation: 15,
+    elevation: 25,
     shadowOffset: {
       height: 15,
       width: 15,
@@ -37,13 +40,13 @@ const styles = StyleSheet.create({
     borderRadius: 8,
     overflow: 'hidden',
   },
-  AuthorNameContainer: {
-    width: 170,
-    height: 60,
-    alignItems: 'center',
-    justifyContent: 'center',
-    marginLeft: 10,
-  },
+  // AuthorNameContainer: {
+  //   width: Width*0.8,
+  //   height: 60,
+  //   alignItems: 'center',
+  //   justifyContent: 'center',
+  //   marginLeft: 10,
+  // },
   NameContainer: {
     // position: 'absolute',
     // height: verticalScale(80),
@@ -57,18 +60,20 @@ const styles = StyleSheet.create({
     alignItems: 'center',
   },
   NameText: {
-    fontSize: 15,
-    color: 'black',
+    fontSize: 18,
+    // color: '#946715',
+    color: 'white',
     letterSpacing: 4,
   },
   titleText: {
-    fontSize: 12,
+    fontSize: 14,
     color: 'gray',
-    letterSpacing: 3,
+    letterSpacing: 4,
   },
   AuthorAbout1: {
     height: 80,
-    width: 260,
+    width: 280,
+    marginLeft:30,
     flexDirection: 'row',
     borderRadius: 8,
     shadowColor: 'black',
@@ -79,14 +84,14 @@ const styles = StyleSheet.create({
     },
   },
   AuthorAbout2: {
-    height: 80,
-    width: 260,
+    height: Height * 0.11,
+    width: Width * 0.60,
     flexDirection: 'row',
   },
   AuthorAboutContainer: {
     justifyContent: 'center',
     alignItems: 'center',
-    width: '100%',
+    // width: '100%',
   },
   AboutContent: {
     marginTop: 20,
@@ -137,8 +142,8 @@ class Profile extends React.Component {
     const {onpress} = this.props;
     const {ifmoreDetails, moreDetailsUserId} = this.state;
     return (
-      <View>
-        <LinearGradient
+      <View style={{justifyContent:'center', alignItems:'center'}}>
+        {/* <LinearGradient
           startPoint={{x: 0.0, y: 0.25}}
           endPoint={{x: 0.5, y: 1.0}}
           locations={[0.2, 0.6]}
@@ -147,125 +152,142 @@ class Profile extends React.Component {
           // colors={['#005aa7', '#195A79']}
           // colors={['#8ca2ba', '#65778a']}
           // colors={['white', '#65778a']}
-          style={{width: '100%', height: '100%'}}>
-          <View>
-            <View>
-              <View
-                style={{
-                  alignItems: 'center',
-                  justifyContent: 'flex-end',
-                  width: '100%',
-                  height: 350,
-                }}>
-                <View style={styles.NameContainer}>
-                  <Text style={styles.NameText}>Prashant Kumar Shukla</Text>
-                  <Text style={styles.titleText}>Author</Text>
-                </View>
-                <View style={styles.profilePhotoContainer}>
-                  <ImageBackground
-                    style={styles.ProfilePhoto}
-                    source={require('../../../assets/pks.jpg')}
-                  />
-                </View>
-              </View>
-              <View style={styles.AuthorAboutContainer}>
-                <View style={styles.AuthorAbout1}>
-                  <LinearGradient
-                    startPoint={{x: 0.0, y: 0.2}}
-                    endPoint={{x: 0.5, y: 0}}
-                    locations={[0, 0.7]}
-                    // colors={['#aab3e6','#005aa7']}
-                    // colors={['#005aa7', '#195A79']}
-                    colors={['gray', 'white']}
-                    style={{
-                      width: '100%',
-                      height: '100%',
-                      borderBottomLeftRadius: 8,
-                      borderBottomRightRadius: 8,
-                    }}>
-                    <View style={styles.AuthorAbout2}>
-                      <View style={styles.AboutContent}>
-                        <Text style={styles.AboutContentText}>34</Text>
-                        <Text
-                          style={[
-                            styles.AboutContentText,
-                            {marginTop: 10, fontSize: 14, color: 'gray'},
-                          ]}>
-                          Stories
-                        </Text>
-                      </View>
-                      <View style={styles.AboutContent}>
-                        <Text style={styles.AboutContentText}>400</Text>
-                        <Text
-                          style={[
-                            styles.AboutContentText,
-                            {marginTop: 10, fontSize: 14, color: 'gray'},
-                          ]}>
-                          Followers
-                        </Text>
-                      </View>
-                      <View style={styles.AboutContent}>
-                        <Text style={styles.AboutContentText}>40</Text>
-                        <Text
-                          style={[
-                            styles.AboutContentText,
-                            {marginTop: 10, fontSize: 14, color: 'gray'},
-                          ]}>
-                          Following
-                        </Text>
-                      </View>
-                    </View>
-                    {/* </View> */}
-                  </LinearGradient>
-                </View>
-              </View>
-              <View style={styles.followContainer}>
-                <View style={styles.followButton1}>
-                  <LinearGradient
-                    startPoint={{x: 0.0, y: 0.2}}
-                    endPoint={{x: 0.5, y: 0}}
-                    locations={[0, 0.7]}
-                    colors={['#2e2c2d', '#005aa7']}
-                    // colors={['#005aa7', '#195A79']}
-                    // colors={['gray', 'white']}
-                    style={{
-                      width: '100%',
-                      height: '100%',
-                      borderBottomLeftRadius: 8,
-                      borderBottomRightRadius: 8,
-                    }}>
-                    <View style={styles.followButton2}>
-                      <Text
-                        style={{
-                          fontSize: 22,
-                          color: 'white',
-                          fontWeight: '700',
-                        }}>
-                        Follow
-                      </Text>
-                    </View>
-                  </LinearGradient>
-                </View>
-              </View>
-            </View>
-          </View>
+          style={{width: '100%', height: '100%'}}> */}
+        <ImageBackground
+          source={require('../../../assets/back34.jpg')}
+          style={{width: '100%', height: '100%'}}
+          blurRadius={2}>
+            {/* Profile Image starts here */}
           <View
             style={{
-              flexDirection: 'row',
-              justifyContent: 'flex-end',
-              marginRight: 20,
-              marginTop: 100,
+              alignItems: 'center',
+              // justifyContent: 'flex-end',
+              width: Width * 1,
+              height: Height * 0.54,
             }}>
-            <Text
-              onPress={onpress}
-              style={{fontSize: 18, color: 'blue', fontWeight: '700'}}>
-              More Info
-            </Text>
+            <View style={styles.NameContainer}>
+              <Text style={styles.NameText}>Prashant Kumar Shukla</Text>
+              <Text style={styles.titleText}>Author</Text>
+            </View>
+            <View style={styles.profilePhotoContainer}>
+              <ImageBackground
+                style={styles.ProfilePhoto}
+                source={require('../../../assets/pks.jpg')}
+              />
+            </View>
+          </View>
+          {/* Profile Image Ends here */}
+          {/* Count Stories, Followers, Following container starts here */}
+          <View style={styles.AuthorAboutContainer}>
+            <View style={styles.AuthorAbout1}>
+              <LinearGradient
+                startPoint={{x: 0.0, y: 0.2}}
+                endPoint={{x: 0.5, y: 0}}
+                locations={[0, 0.7]}
+                // colors={['#aab3e6','#005aa7']}
+                // colors={['#005aa7', '#195A79']}
+                colors={['gray', 'white']}
+                style={{
+                  borderBottomLeftRadius: 8,
+                  borderBottomRightRadius: 8,
+                  // width: Width * 0.64,
+                  width:Width*.60,
+                  height: Height * 0.098,
+                }}>
+                <View style={styles.AuthorAbout2}>
+                  <View style={styles.AboutContent}>
+                    <Text style={styles.AboutContentText}>34</Text>
+                    <Text
+                      style={[
+                        styles.AboutContentText,
+                        {marginTop: 10, fontSize: 14, color: 'gray'},
+                      ]}>
+                      Stories
+                    </Text>
+                  </View>
+                  <View style={styles.AboutContent}>
+                    <Text style={styles.AboutContentText}>400</Text>
+                    <Text
+                      style={[
+                        styles.AboutContentText,
+                        {marginTop: 10, fontSize: 14, color: 'gray'},
+                      ]}>
+                      Followers
+                    </Text>
+                  </View>
+                  <View style={styles.AboutContent}>
+                    <Text style={styles.AboutContentText}>40</Text>
+                    <Text
+                      style={[
+                        styles.AboutContentText,
+                        {marginTop: 10, fontSize: 14, color: 'gray'},
+                      ]}>
+                      Following
+                    </Text>
+                  </View>
+                </View>
+                {/* </View> */}
+              </LinearGradient>
+            </View>
+          </View>
+           {/* Count Stories, Followers, Following container starts here */}
+
+           {/* Follow button tarts here */}
+
+          <View style={styles.followContainer}>
+            <View style={styles.followButton1}>
+              <LinearGradient
+                startPoint={{x: 0.0, y: 0.2}}
+                endPoint={{x: 0.5, y: 0}}
+                locations={[0, 0.7]}
+                colors={['#2e2c2d', '#005aa7']}
+                // colors={['#005aa7', '#195A79']}
+                // colors={['gray', 'white']}
+                style={{
+                  width: '100%',
+                  height: '100%',
+                  borderBottomLeftRadius: 8,
+                  borderBottomRightRadius: 8,
+                }}>
+                <View style={styles.followButton2}>
+                  <Text
+                    style={{
+                      fontSize: 22,
+                      color: 'white',
+                      fontWeight: '700',
+                    }}>
+                    Follow
+                  </Text>
+                </View>
+              </LinearGradient>
+            </View>
           </View>
           {/* </View> */}
 
+          {/* More Info Starts here */}
+
+          <View
+            style={{
+              flexDirection: 'row',
+              justifyContent: 'center',
+              // marginRight: 20,
+              marginHorizontal: Width * 0.008,
+              marginTop: Height * 0.1,
+            }}>
+            {/* <Text style={{color: 'white', fontSize: 18}} onPress={onpress}>
+              More
+            </Text> */}
+            <CustomIcon
+              name={'next'}
+              size={30}
+              color="white"
+              onPress={onpress}
+            />
+          </View>
+          {/* More Info Ends Here */}
           {/* // </ImageBackground> */}
-        </LinearGradient>
+        </ImageBackground>
+        {/* </LinearGradient> */}
         <Modal
           animationType="slide"
           transparent={false}
