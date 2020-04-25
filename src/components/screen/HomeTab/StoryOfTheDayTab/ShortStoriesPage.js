@@ -57,34 +57,35 @@ class ShortStoriesModal extends React.Component {
         <View>
           <Text style={header.Text}>OutwitStory's Short Stories</Text>
         </View>
-        <View style={{height: 235}}>
+        <View style={{height: Height*0.35}}>
           {this.renderheaderTitle('Most Read')}
           <MostReadShortStories />
         </View>
-        <View style={{height: Height - 310}}>
+        <View style={{ height: Height * 0.8}}>
           {this.renderheaderTitle('Read categories wise short Stories')}
           <ScrollView
             nestedScrollEnabled={true}
             horizontal={true}
             scrollIndicatorInsets={false}>
-            <View style={{flexDirection: 'row'}}>
-              <ScrollView
-                nestedScrollEnabled={true}
-                showsVerticalScrollIndicator={false}>
-                {/* {this.renderheaderTitle('Thriller')} */}
+            {/* <View style={{flexDirection: 'row'}}> */}
+            <ScrollView
+              nestedScrollEnabled={true}
+              showsVerticalScrollIndicator={false}>
+              {/* <View style={StyleSheet.absoluteFill}> */}
                 <SituationBasedStories />
-              </ScrollView>
-              <ScrollView
-                nestedScrollEnabled={true}
-                showsVerticalScrollIndicator={false}>
-                <SituationBasedStories />
-              </ScrollView>
-              <ScrollView
+              {/* </View> */}
+            </ScrollView>
+            <ScrollView
                 nestedScrollEnabled={true}
                 showsVerticalScrollIndicator={false}>
                 <SituationBasedStories />
               </ScrollView>
-            </View>
+              <ScrollView
+                nestedScrollEnabled={true}
+                showsVerticalScrollIndicator={false}>
+                <SituationBasedStories />
+              </ScrollView>
+            {/* </View> */}
           </ScrollView>
         </View>
       </View>

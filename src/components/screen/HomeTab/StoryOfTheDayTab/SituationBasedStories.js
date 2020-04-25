@@ -44,20 +44,19 @@ class SituationBasedStories extends React.Component {
   renderMostRead() {
     const {AllStories} = this.state;
     return (
-      <View style={{backgroundColor: 'white', marginTop: 5}}>
-       
+      <View style={{marginTop: 5,marginBottom:Height*0.26}}>
         {/* <Text style={styles.GenerHeader}> Most Read</Text> */}
         <View style={renderMostRead.mostReadContainer}>
           <FlatList
             keyExtractor={item => item.id}
             data={AllStories}
-            // horizontal={true}
-            // showsHorizontalScrollIndicator={false}
+            // style={{height:300}}
+            // numColumns={2}
             showsVerticalScrollIndicator={false}
             renderItem={({item}) => (
               <Cards
                 // mainContainerStyle
-                // onpress={() => this.comments(item.id)}
+                onpress={() => this.comments(item.id)}
                 Title={item.title}
                 Id={item.id}
                 Authorname={item.Author}
@@ -85,8 +84,8 @@ class SituationBasedStories extends React.Component {
 
   render() {
     return (
-      <View style={{backgroundColor: '#e6efff', height: Height}}>
-        {this.renderMostRead()}
+      <View>
+        <View>{this.renderMostRead()}</View>
       </View>
     );
   }

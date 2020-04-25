@@ -27,7 +27,7 @@ import MoreOptionsCards from './MoreOptions';
 import CustomIcon from '../../../atoms/CustomIcon';
 import ChallengOfTheDay from '../challengeOfTheDay/challengeOfTheDay';
 import {Actions} from 'react-native-router-flux';
-import ShortStoriesModal from './ShortStoriesPage'
+import ShortStoriesModal from './ShortStoriesPage1';
 
 const MoreOptionTextColor = '#168b91';
 //  '#cff2ff';
@@ -50,7 +50,18 @@ const styles = StyleSheet.create({
     borderBottomWidth: 1,
     // marginTop: verticalScale(10),
   },
+  AuthorImage: {
+    height: 60,
+    width: 60,
+    marginLeft: 30,
+    borderRadius: 20,
+  },
 
+  AuthorName: {
+    marginLeft: Width * 0.06,
+    marginTop: 10,
+    fontSize: 16,
+  },
   MoreOptions: {
     marginTop: verticalScale(20),
     // color: 'black',
@@ -209,12 +220,7 @@ class Home extends React.Component {
             <View style={styles.MoreOptions}>
               <View>
                 <Image
-                  style={{
-                    height: 80,
-                    width: 80,
-                    marginLeft: 30,
-                    borderRadius: 50,
-                  }}
+                  style={styles.AuthorImage}
                   source={require('../../../../assets/pks.jpg')}
                   // onPress={() => console.log("I am Clicking on image")}
                 />

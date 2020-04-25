@@ -4,14 +4,30 @@ import CustomIcon from '../../../atoms/CustomIcon';
 import {
   verticalScale,
   horizontalScale,
+  Height,
+  Width,
 } from '../../../../utils/stylesheetawesomeproject';
 
 const fontColor = 'black';
 const styles = StyleSheet.create({
   storiesContainer: {
     // width: '100%',
-    // backgroundColor: 'white',
-    marginBottom: 20,
+    // backgroundColor: '#1d8f8f',
+    marginTop: 10,
+    marginBottom: 10,
+    elevation: 3,
+    marginLeft: 10,
+    // backgroundColor: '#bdd4ff',
+
+    marginRight: 20,
+    // borderRadius: 20,
+    height: Height * 0.28,
+    width: Width * 0.84,
+    alignItems: 'center',
+    justifyContent: 'center',
+    // borderWidth:1,
+    borderRadius: 8,
+    // paddingBottom:300
   },
   AuthorImageContainer: {
     height: 20,
@@ -24,11 +40,17 @@ const styles = StyleSheet.create({
     // marginBottom: 5,
     marginVertical: verticalScale(10),
   },
-  AuthorImage: {
-    height: 18,
-    width: 18,
-    borderRadius: 50,
+  TitlePageImage: {
+    width: Width * 0.34,
+    height: Height * 0.25,
+    marginVertical: 5,
+    borderRadius: 10,
   },
+  // AuthorImage: {
+  //   height: 18,
+  //   width: 18,
+  //   borderRadius: 50,
+  // },
   AuthorName: {
     // marginLeft: horizontalScale(5),
     height: verticalScale(20),
@@ -57,7 +79,7 @@ const styles = StyleSheet.create({
     fontSize: 18,
     fontWeight: 'bold',
     color: fontColor,
-    marginTop: 10,
+    marginTop: 20,
     width: 150,
   },
   StoryStyle: {
@@ -65,6 +87,7 @@ const styles = StyleSheet.create({
     color: fontColor,
     fontSize: 14,
     letterSpacing: 0.5,
+    marginTop: 10,
     // color:'black'
   },
   Description: {
@@ -126,30 +149,14 @@ class Cards extends React.Component {
           ]}> */}
         <View
           style={{
-            marginLeft: 10,
+            //  / marginLeft: 10,
             marginRight: 10,
             width: 320,
-            marginTop: 6,
+            // marginTop: 6,
             flexDirection: 'row',
           }}>
-          <View
-            style={{
-              // width: 122,
-              // height: 163,
-              // marginVertical: 5,
-              // borderRadius: 8,
-              // borderColor: '#946715',
-              // borderWidth: 1,
-            }}>
-            <Image
-              style={{
-                width: 120,
-                height: 160,
-                // marginVertical: 5,
-                borderRadius: 8,
-              }}
-              source={Source}
-            />
+          <View style={{}}>
+            <Image style={styles.TitlePageImage} source={Source} />
           </View>
           <View>
             <View style={styles.Description}>

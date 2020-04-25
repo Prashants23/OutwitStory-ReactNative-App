@@ -1,5 +1,38 @@
 import {SearchBar} from 'react-native-elements';
 import React from 'react';
+import {TextInput, StyleSheet, View, Text} from 'react-native';
+import {Width, Height} from '../../utils/stylesheetawesomeproject';
+import CustomIcon from './CustomIcon';
+// import { Icon } from 'react-native-vector-icons/Icon';
+
+const searchBarContainer = StyleSheet.create({
+  mainContainer: {
+    marginTop: 40,
+    // justifyContent: 'center',
+    alignItems: 'center',
+  },
+  textinput: {
+    paddingLeft: 15,
+    color: '#313636',
+    height: 52,
+    letterSpacing:1,
+    width: Width * 0.8,
+    fontSize:16
+  },
+  container: {
+    borderRadius: 10,
+    width: Width * 0.9,
+    // backgroundColor: '#f5f7fa',
+    backgroundColor:'#e1e6e6',
+    // backgroundColor: '#dee3e3',
+
+    flexDirection: 'row',
+  },
+  Icon: {
+    paddingTop: 15,
+    paddingLeft: 10,
+  },
+});
 
 class SearchBox extends React.Component {
   state = {
@@ -14,31 +47,23 @@ class SearchBox extends React.Component {
     const {search} = this.state;
 
     return (
-      <SearchBar
-        round
-        placeholder="Type Here..."
-        onChangeText={this.updateSearch}
-        value={search}
-        containerStyle={{
-          backgroundColor: '#a3c6ff',
-          // backgroundColor:"white",
-          color: 'blue',
-          borderColor: 'white',
-          borderBottomColor: '#a3c6ff',
-          borderRadius: 40,
-          height: 60,
-          width: 200,
-        }}
-        inputContainerStyle={{
-          marginLeft: 20,
-          marginTop: 10,
-          borderRadius: 50,
-          width: 200,
-          // height:50,
-          backgroundColor: '#fafafa',
-        }}
-        searchIcon={{color: 'black'}}
-      />
+      <View style={searchBarContainer.mainContainer}>
+        <View style={searchBarContainer.container}>
+          <CustomIcon
+            name="writer"
+            size={20}
+            color="#313636"
+            style={searchBarContainer.Icon}
+          />
+          <TextInput
+            style={searchBarContainer.textinput}
+            placeholderTextColor="#747575"
+            placeholder="Search"
+
+            // onChangeText={this.UserNameUpdate}
+          />
+        </View>
+      </View>
     );
   }
 }

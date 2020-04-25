@@ -156,14 +156,14 @@ class MoreProfileInfo extends React.Component {
     };
   }
 
-  contentTypeChange = e => {
+  contentTypeChange = event => {
     const {ifStories, ifBooks, ifMyJournal} = this.state;
     this.setState(
-      e === 'Stories'
+      event === 'Stories'
         ? {ifStories: true, ifBooks: false, ifMyJournal: false}
-        : e === 'Books'
+        : event === 'Books'
         ? {ifStories: false, ifBooks: true, ifMyJournal: false}
-        : e === 'Journal'
+        : event === 'Journal'
         ? {ifStories: false, ifBooks: false, ifMyJournal: true}
         : null,
     );
